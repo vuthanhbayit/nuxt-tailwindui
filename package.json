@@ -6,7 +6,8 @@
   "main": "src/index.ts",
   "files": [
     "components",
-    "src"
+    "pages",
+    "nuxt.js"
   ],
   "scripts": {
     "dev": "nuxt",
