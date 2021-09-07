@@ -1,6 +1,6 @@
 {
   "name": "@vt7/nuxt-tailwindui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Nuxt tailwind UI",
   "repository": "vuthanhbayit/nuxt-tailwindui",
   "main": "src/index.ts",
