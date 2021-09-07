@@ -1,0 +1,52 @@
+{
+  "name": "@vt7/nuxt-tailwindui",
+  "version": "0.0.2",
+  "description": "Nuxt tailwind UI",
+  "repository": "vuthanhbayit/nuxt-tailwindui",
+  "main": "src/index.ts",
+  "files": [
+    "components",
+    "src"
+  ],
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
+    "prepare": "husky install",
+    "lint": "yarn lint:js",
+    "release": "yarn lint && standard-version && git push --follow-tags && npm publish"
+  },
+  "lint-staged": {
+    "*.{js,vue}": "eslint"
+  },
+  "dependencies": {
+    "@nuxtjs/composition-api": "^0.28.0",
+    "core-js": "^3.15.1",
+    "nuxt": "^2.15.7"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.14.7",
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "@nuxt/types": "^2.15.7",
+    "@nuxt/typescript-build": "^2.1.0",
+    "@nuxtjs/eslint-config-typescript": "^6.0.1",
+    "@nuxtjs/eslint-module": "^3.0.2",
+    "@nuxtjs/tailwindcss": "^4.2.0",
+    "eslint": "^7.29.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-nuxt": "^2.0.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^7.12.1",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
+    "postcss": "^8.3.5",
+    "prettier": "^2.3.2",
+    "standard-version": "^9.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
