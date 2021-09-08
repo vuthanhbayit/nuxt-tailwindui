@@ -1,5 +1,10 @@
 <template>
-  <div :class="$style.formControl">
+  <div
+    :class="{
+      [$style.formControl]: true,
+      [$style.formControlDetail]: !hideDetails,
+    }"
+  >
     <label :class="$style.label">{{ label }}</label>
 
     <div
@@ -42,25 +47,42 @@
       </div>
     </div>
 
-    <p v-if="description" :class="$style.description">{{ description }}</p>
+    <p v-if="error" :class="[$style.detail, $style.error]">
+      {{ errorMessage }}
+    </p>
+    <p v-else-if="hint" :class="$style.detail">{{ hint }}</p>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from '@nuxtjs/composition-api'
+import { defineComponent, provide, toRef } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   name: 'FormControl',
 
   props: {
-    description: { type: String, default: '' },
+    hint: { type: String, default: '' },
     label: { type: String, default: '' },
+    error: { type: Boolean, default: false },
+    errorMessage: { type: String, default: '' },
+    hideDetails: { type: Boolean, default: false },
+  },
+
+  setup(props) {
+    const error = toRef(props, 'error')
+
+    provide('error', error)
   },
 })
 </script>
 
 <style lang="postcss" module>
 .formControl {
+  @apply relative;
+}
+
+.formControlDetail {
+  @apply pb-6;
 }
 
 .label {
@@ -68,9 +90,15 @@ export default defineComponent({
   @apply text-sm font-medium text-gray-700;
 }
 
-.description {
-  @apply mt-2;
+.detail {
+  @apply absolute left-0 bottom-0;
   @apply text-sm text-gray-500;
+
+  animation: slideUp 0.1s ease-out;
+}
+
+.error {
+  @apply text-error;
 }
 
 .inputWrapper {
@@ -132,5 +160,16 @@ export default defineComponent({
 
 .outerLeft {
   @apply rounded-l-md border-r-0;
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>

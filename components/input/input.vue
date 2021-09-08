@@ -5,6 +5,7 @@
     :autofocus="autofocus"
     :class="{
       [$style.input]: true,
+      [$style.inputError]: error,
     }"
     :disabled="disabled"
     :enterkeyhint="enterkeyhint"
@@ -17,7 +18,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, toRefs } from '@nuxtjs/composition-api'
+import {
+  defineComponent,
+  inject,
+  PropType,
+  ref,
+  toRefs,
+} from '@nuxtjs/composition-api'
 import { useLazyValue } from '../../composables'
 
 // prettier-ignore
@@ -46,10 +53,9 @@ export default defineComponent({
 
   setup(props) {
     const { value, debounce } = toRefs(props)
+    const error = inject('error', ref(false))
 
-    const { lazyValue, internalValue } = useLazyValue(value, debounce)
-
-    return { lazyValue, internalValue }
+    return { ...useLazyValue(value, debounce), error }
   },
 })
 </script>
@@ -60,5 +66,10 @@ export default defineComponent({
   @apply focus:ring-primary-focus focus:border-primary-focus;
   @apply w-full block;
   @apply border border-gray-300;
+}
+
+.inputError {
+  @apply border-error;
+  @apply focus:ring-error focus:border-error;
 }
 </style>

@@ -1,14 +1,22 @@
 <template>
   <div class="flex flex-col space-y-4">
-    <t-form-control label="Email">
+    <t-form-control hide-details label="Email">
       <t-input v-model="text"></t-input>
     </t-form-control>
 
-    <t-form-control description="We'll only use this for spam." label="Email">
+    <t-form-control hint="We'll only use this for spam." label="Email">
       <t-input v-model="text"></t-input>
     </t-form-control>
 
-    <t-form-control description="We'll only use this for spam." label="Email">
+    <t-form-control hint="We'll only use this for spam." label="Readonly">
+      <t-input v-model="text" readonly></t-input>
+    </t-form-control>
+
+    <t-form-control hint="We'll only use this for spam." label="Disabled">
+      <t-input v-model="text" disabled></t-input>
+    </t-form-control>
+
+    <t-form-control hint="We'll only use this for spam." label="Email">
       <template #innerLeft>
         <span>http://</span>
       </template>
@@ -37,7 +45,7 @@
       </template>
     </t-form-control>
 
-    <t-form-control description="We'll only use this for spam." label="Email">
+    <t-form-control hint="We'll only use this for spam." label="Email">
       <template #outerLeft>
         <span>http://</span>
       </template>
@@ -45,12 +53,20 @@
       <t-input v-model="text" placeholder="your@example.com"></t-input>
     </t-form-control>
 
-    <t-form-control description="We'll only use this for spam." label="Email">
+    <t-form-control hint="We'll only use this for spam." label="Email">
       <t-input v-model="text" placeholder="your@example.com"></t-input>
 
       <template #outerRight>
         <span>USD</span>
       </template>
+    </t-form-control>
+
+    <t-form-control
+      :error="!text.length"
+      error-message="Text is required!"
+      label="Error"
+    >
+      <t-input v-model="text"></t-input>
     </t-form-control>
   </div>
 </template>
