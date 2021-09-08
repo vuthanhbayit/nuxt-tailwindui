@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.9](https://github.com/vuthanhbayit/nuxt-tailwindui/compare/v0.0.8...v0.0.9) (2021-09-08)
+
+
+### Features
+
+* **checkbox:** add checkbox ([60d37fa](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/60d37fa3173a7fb1aa682336701f9e14f2f1183f))
+* **radio:** add radio ([083e789](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/083e78962b025fab28b99bd7c3294d85f3f22b9c))
+
+
+### Bug Fixes
+
+* **input:** fix state readonly and disabled ([c566110](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/c566110454be0c8fc0b813e8ebb7bd60ae40a953))
+
 ### [0.0.8](https://github.com/vuthanhbayit/nuxt-tailwindui/compare/v0.0.7...v0.0.8) (2021-09-08)
 
 ### [0.0.7](https://github.com/vuthanhbayit/nuxt-tailwindui/compare/v0.0.6...v0.0.7) (2021-09-08)
