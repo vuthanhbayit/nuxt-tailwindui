@@ -5,7 +5,9 @@
     :autofocus="autofocus"
     :class="{
       [$style.input]: true,
-      [$style.inputError]: error,
+      [$style.error]: error,
+      [$style.readonly]: readonly,
+      [$style.disabled]: disabled,
     }"
     :disabled="disabled"
     :enterkeyhint="enterkeyhint"
@@ -68,8 +70,18 @@ export default defineComponent({
   @apply border border-gray-300;
 }
 
-.inputError {
+.error {
   @apply border-error;
   @apply focus:ring-error focus:border-error;
+}
+
+.readonly {
+  @apply pointer-events-none;
+}
+
+.disabled {
+  @apply pointer-events-none;
+  @apply bg-gray-300 text-gray-600;
+  @apply opacity-60;
 }
 </style>
