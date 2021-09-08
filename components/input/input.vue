@@ -55,7 +55,7 @@ export default defineComponent({
     const { value, debounce } = toRefs(props)
     const error = inject('error', ref(false))
 
-    return { ...useLazyValue(value, debounce), error }
+    return { ...useLazyValue(value, debounce.value), error }
   },
 })
 </script>

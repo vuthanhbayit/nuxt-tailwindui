@@ -7,7 +7,7 @@ import {
 } from '@nuxtjs/composition-api'
 import { debounce } from '../utils'
 
-export const useLazyValue = <T>(modelValue: Ref<T>, wait: Ref<number>) => {
+export const useLazyValue = <T>(modelValue: Ref<T>, wait = 0) => {
   const vm = getCurrentInstance()
   // @ts-expect-error mis-alignment with @vue/composition-api
   const _emit = vm?.emit || vm?.$emit?.bind(vm)
@@ -19,8 +19,10 @@ export const useLazyValue = <T>(modelValue: Ref<T>, wait: Ref<number>) => {
     },
     set: debounce(val => {
       lazyValue.value = val
+
       _emit('input', lazyValue.value)
-    }, wait.value),
+      _emit('change', lazyValue.value)
+    }, wait),
   })
 
   watch(
