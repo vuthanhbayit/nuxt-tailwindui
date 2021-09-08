@@ -6,11 +6,11 @@
   "main": "src/index.ts",
   "files": [
     "components",
-    "pages",
+    "example",
     "nuxt.js"
   ],
   "scripts": {
-    "dev": "nuxt",
+    "dev": "nuxt example",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
