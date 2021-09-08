@@ -1,7 +1,10 @@
 <template>
   <div>
-    <t-button @click="$router.push('/button')">Button</t-button>
-    <t-button nuxt href="/button">Button</t-button>
+    <t-button color="primary" nuxt href="/button">Button</t-button>
+    <t-button color="secondary" nuxt href="/input">Input</t-button>
+    <t-button color="secondary" nuxt href="/form-control">
+      Form control
+    </t-button>
 
     <div class="p-8">
       <nuxt></nuxt>

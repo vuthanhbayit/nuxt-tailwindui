@@ -1,6 +1,7 @@
 const colors = require('tailwindcss/colors')
 
 export default {
+  mode: 'jit',
   theme: {
     extend: {
       colors: {
@@ -19,4 +20,5 @@ export default {
       },
     },
   },
+  plugins: [require('@tailwindcss/forms')],
 }

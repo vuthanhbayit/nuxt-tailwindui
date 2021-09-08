@@ -56,6 +56,6 @@
 
 <script>
 export default {
-  name: 'Button',
+  name: 'PageButton',
 }
 </script>
