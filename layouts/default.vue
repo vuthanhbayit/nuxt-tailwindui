@@ -3,6 +3,7 @@
     <t-button color="primary" nuxt href="/button">Button</t-button>
     <t-button color="secondary" nuxt href="/input">Input</t-button>
     <t-button color="secondary" nuxt href="/checkbox">Checkbox</t-button>
+    <t-button color="secondary" nuxt href="/radio">Radio</t-button>
     <t-button color="secondary" nuxt href="/form-control">
       Form control
     </t-button>
