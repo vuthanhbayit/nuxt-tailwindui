@@ -13,10 +13,9 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-  ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
-  plugins: ['@/plugins/tailwindUi'],
+    '../nuxt',
+  ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
