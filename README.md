@@ -53,6 +53,10 @@ module.exports = {
               hover: colors.indigo['200'],
               content: colors.indigo['700'],
           },
+          error: colors.red['500'],
+          info: colors.blue['500'],
+          warning: colors.yellow['500'],
+          success: colors.green['500'],
         }
     }
   }
