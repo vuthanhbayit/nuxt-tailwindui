@@ -49,6 +49,8 @@
     <t-button color="primary" size="sm">Button sm</t-button>
     <t-button color="primary" size="md">Button base</t-button>
     <t-button color="primary" size="lg">Button lg</t-button>
+    <t-button color="primary" disabled size="lg">Button disabled</t-button>
+    <t-button color="primary" loading size="lg">Button loading</t-button>
   </div>
 </template>
 
