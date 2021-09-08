@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.6](https://github.com/vuthanhbayit/nuxt-tailwindui/compare/v0.0.5...v0.0.6) (2021-09-08)
+
+
+### Features
+
+* **button:** add href ([e19bcd6](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/e19bcd6f2c61e076b737d65d09fb308946c35536))
+* **button:** add state disalbed and loading ([0c18802](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/0c18802fc14a0d608aae6913ee8904feec76422a))
+* **form-control:** add error logic ([f291bfe](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/f291bfea43e205ed3659b48a440ddeba4960e24f))
+* **form-control:** add form control ([4a775a7](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/4a775a7bb97ca7b6af046e65477750c81131f19c))
+
+
+### Bug Fixes
+
+* **core:** fix structure example ([1c51b91](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/1c51b913ccdffa7307df55b52f5c6c8546cfd98e))
+* **core:** fix structure for suggestion ([e26ee3e](https://github.com/vuthanhbayit/nuxt-tailwindui/commit/e26ee3e3590ea3ae5cb21aa709700091ef40b752))
+
 ### [0.0.5](https://github.com/vuthanhbayit/nuxt-tailwindui/compare/v0.0.4...v0.0.5) (2021-09-07)
 
 
