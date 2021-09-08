@@ -4,6 +4,7 @@
   "description": "Nuxt tailwind UI",
   "repository": "vuthanhbayit/nuxt-tailwindui",
   "main": "src/index.ts",
+  "keywords": ["nuxt", "nuxtjs", "vue", "vuejs", "tailwind", "tailwindui", "tailwind-ui"],
   "files": [
     "components",
     "layouts",
