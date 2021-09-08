@@ -90,5 +90,5 @@ sw.*
 *.swp
 
 # nuxt storm
-example/.components.gen.js
+.components.gen.js
 

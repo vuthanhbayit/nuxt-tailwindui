@@ -1,6 +1,6 @@
 export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
-  components: true,
+  components: [{ path: '~/components/', prefix: 't' }],
 
   server: {
     port: 3006,
@@ -19,6 +19,16 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    loaders: {
+      cssModules: {
+        modules: {
+          localIdentName:
+            process.env.NODE_ENV !== 'production'
+              ? '[local]_[hash:base64:4]'
+              : '[hash:base64:4]',
+        },
+      },
+    },
     postcss: {
       plugins: {
         'postcss-import': true,

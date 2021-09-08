@@ -30,7 +30,7 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg'
 export type Color = 'primary' | 'secondary' | 'outline'
 
 export default defineComponent({
-  name: 'TButton',
+  name: 'Button',
 
   props: {
     size: { type: String as PropType<Size>, default: 'md' },
