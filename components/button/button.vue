@@ -1,5 +1,6 @@
 <template>
-  <button
+  <component
+    :is="tag"
     :class="{
       [$style.button]: true,
       [$style.buttonSm]: size === 'sm',
@@ -14,22 +15,21 @@
       [$style.buttonRounded]: rounded,
       [$style.buttonCircle]: circle,
     }"
+    v-bind="attrs"
     v-on="$listeners"
   >
-    <slot name="start"></slot>
-
     <slot></slot>
-
-    <slot name="end"></slot>
-  </button>
+  </component>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from '@nuxtjs/composition-api'
+import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
 export type Size = 'xs' | 'sm' | 'md' | 'lg'
 export type Color = 'primary' | 'secondary' | 'outline'
+
 export default defineComponent({
   name: 'TButton',
+
   props: {
     size: {
       type: String as PropType<Size>,
@@ -51,13 +51,39 @@ export default defineComponent({
       type: Boolean,
       default: false,
     },
+    nuxt: {
+      type: Boolean,
+      default: false,
+    },
+    href: {
+      type: String,
+      default: '',
+    },
+  },
+
+  setup(props, context) {
+    const tag = computed(() => {
+      return props.nuxt ? 'nuxt-link' : 'button'
+    })
+
+    const attrs = computed(() => {
+      const _attrs = {
+        ...context.attrs,
+      } as Record<string, unknown>
+
+      if (props.nuxt) _attrs.to = props.href
+
+      return _attrs
+    })
+
+    return { attrs, tag }
   },
 })
 </script>
 
 <style lang="postcss" module>
 .button {
-  @apply items-center;
+  @apply inline-block items-center;
   @apply border border-transparent;
   @apply font-medium;
   @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
@@ -95,6 +121,7 @@ export default defineComponent({
 }
 .buttonMd {
   @apply px-4 py-2;
+  @apply text-base;
   @apply shadow-sm rounded-md;
   &.buttonCircle {
     @apply p-2;

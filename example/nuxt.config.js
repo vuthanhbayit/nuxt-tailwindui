@@ -13,7 +13,7 @@ export default {
     '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/tailwindcss
     '@nuxtjs/tailwindcss',
-
+    'nuxt-storm',
     '../nuxt',
   ],
 
