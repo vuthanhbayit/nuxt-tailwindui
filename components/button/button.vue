@@ -14,6 +14,8 @@
       [$style.buttonBlock]: block,
       [$style.buttonRounded]: rounded,
       [$style.buttonCircle]: circle,
+      [$style.buttonDisabled]: disabled,
+      [$style.buttonLoading]: loading,
     }"
     v-bind="attrs"
     v-on="$listeners"
@@ -31,34 +33,15 @@ export default defineComponent({
   name: 'TButton',
 
   props: {
-    size: {
-      type: String as PropType<Size>,
-      default: 'md',
-    },
-    color: {
-      type: String as PropType<Color>,
-      default: 'outline',
-    },
-    block: {
-      type: Boolean,
-      default: false,
-    },
-    rounded: {
-      type: Boolean,
-      default: false,
-    },
-    circle: {
-      type: Boolean,
-      default: false,
-    },
-    nuxt: {
-      type: Boolean,
-      default: false,
-    },
-    href: {
-      type: String,
-      default: '',
-    },
+    size: { type: String as PropType<Size>, default: 'md' },
+    color: { type: String as PropType<Color>, default: '' },
+    block: { type: Boolean, default: false },
+    rounded: { type: Boolean, default: false },
+    circle: { type: Boolean, default: false },
+    nuxt: { type: Boolean, default: false },
+    href: { type: String, default: '' },
+    disabled: { type: Boolean, default: false },
+    loading: { type: Boolean, default: false },
   },
 
   setup(props, context) {
@@ -73,6 +56,8 @@ export default defineComponent({
 
       if (props.nuxt) _attrs.to = props.href
 
+      if (props.disabled) _attrs.disabled = true
+
       return _attrs
     })
 
@@ -86,17 +71,20 @@ export default defineComponent({
   @apply inline-block items-center;
   @apply border border-transparent;
   @apply font-medium;
+  @apply rounded-md;
   @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
 }
 .buttonPrimary {
   @apply text-primary-content bg-primary;
   @apply hover:bg-primary-hover;
   @apply focus:ring-primary-focus;
+  @apply shadow-sm;
 }
 .buttonSecondary {
   @apply text-secondary-content bg-secondary;
   @apply hover:bg-secondary-hover;
   @apply focus:ring-secondary-focus;
+  @apply shadow-sm;
 }
 .buttonOutline {
   @apply border border-gray-300;
@@ -106,30 +94,33 @@ export default defineComponent({
 .buttonXs {
   @apply px-2.5 py-1.5;
   @apply text-xs;
-  @apply shadow-sm rounded;
+  @apply rounded;
   &.buttonCircle {
     @apply p-1;
+  }
+  &.buttonLoading:before {
+    @apply w-3 h-3;
   }
 }
 .buttonSm {
   @apply px-3 py-2;
   @apply text-sm leading-4;
-  @apply rounded-md shadow-sm;
   &.buttonCircle {
     @apply p-1.5;
+  }
+  &.buttonLoading:before {
+    @apply w-3 h-3;
   }
 }
 .buttonMd {
   @apply px-4 py-2;
   @apply text-base;
-  @apply shadow-sm rounded-md;
   &.buttonCircle {
     @apply p-2;
   }
 }
 .buttonLg {
   @apply px-6 py-3;
-  @apply rounded-md shadow-sm;
   &.buttonCircle {
     @apply p-3;
   }
@@ -143,5 +134,29 @@ export default defineComponent({
 }
 .buttonCircle {
   @apply rounded-full;
+}
+.buttonDisabled {
+  @apply pointer-events-none;
+  @apply bg-gray-300 text-gray-600;
+  @apply opacity-60;
+}
+.buttonLoading {
+  @apply pointer-events-none;
+
+  &:before {
+    animation: spin 1s linear infinite;
+    border-color: transparent currentColor currentColor transparent;
+    content: ' ';
+
+    @apply border-2 rounded-full;
+    @apply inline-block w-4 h-4;
+    @apply mr-2;
+  }
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 </style>
