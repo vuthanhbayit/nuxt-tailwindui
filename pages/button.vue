@@ -1,5 +1,9 @@
 <template>
   <div class="space-x-4 space-y-4 p-8">
+    <t-anchor href="/input" nuxt>Anchor Input</t-anchor>
+
+    <t-anchor @click.prevent>Anchor Stop</t-anchor>
+
     <t-button type="submit">Button</t-button>
 
     <t-button color="secondary">Button secondary</t-button>

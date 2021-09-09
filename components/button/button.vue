@@ -28,6 +28,7 @@
 import { computed, defineComponent, PropType } from '@nuxtjs/composition-api'
 export type Size = 'xs' | 'sm' | 'md' | 'lg'
 export type Color = 'primary' | 'secondary' | 'outline'
+export type Type = 'button' | 'submit' | 'reset'
 
 export default defineComponent({
   name: 'Button',
@@ -35,6 +36,7 @@ export default defineComponent({
   props: {
     size: { type: String as PropType<Size>, default: 'md' },
     color: { type: String as PropType<Color>, default: '' },
+    type: { type: String as PropType<Type>, default: 'button' },
     block: { type: Boolean, default: false },
     rounded: { type: Boolean, default: false },
     circle: { type: Boolean, default: false },
