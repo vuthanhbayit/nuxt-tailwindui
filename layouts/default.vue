@@ -1,10 +1,11 @@
 <template>
   <div>
-    <t-button color="primary" nuxt href="/button">Button</t-button>
-    <t-button color="secondary" nuxt href="/input">Input</t-button>
-    <t-button color="secondary" nuxt href="/checkbox">Checkbox</t-button>
-    <t-button color="secondary" nuxt href="/radio">Radio</t-button>
-    <t-button color="secondary" nuxt href="/form-control">
+    <t-button color="primary" href="/button" nuxt>Button</t-button>
+    <t-button color="secondary" href="/input" nuxt>Input</t-button>
+    <t-button color="secondary" href="/checkbox" nuxt>Checkbox</t-button>
+    <t-button color="secondary" href="/radio" nuxt>Radio</t-button>
+    <t-button color="secondary" href="/divider" nuxt>Divider</t-button>
+    <t-button color="secondary" href="/form-control" nuxt>
       Form control
     </t-button>
 
